@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="kor">
+<html lang="kr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,6 @@
         
         
         
-    <div id="tt">0</div>
             <header id="header">
                 <h1><a href="#home"></a></h1>
         
@@ -41,14 +40,14 @@
           
             <div id="contents">
             
-                  <section id="home" class="area" data-idx="0">
+                  <section id="home" class="area">
                     <video src="https://www.tlj.co.kr/static/images/bread/video/video7.mp4" autoplay muted loop type="video/mp4"></video>
                   </section>
                   
                   
                   
                   
-                  <section id="recom" class="area" data-idx="1">
+                  <section id="recom" class="area">
                       <div class="inner">
                       
                               <h2>TOUS les JOURS 추천제품</h2>
@@ -97,7 +96,7 @@
                   
                   
                   
-                  <section id="works" class="area" data-idx="2">
+                  <section id="works" class="area">
                       <div class="inner">
                       
                             <h2>works</h2>
@@ -114,7 +113,7 @@
                   
                   
                   
-                  <section id="contact" class="area" data-idx="3">
+                  <section id="contact" class="area">
                       <div class="inner">
                       
                               <h2>contact</h2>
@@ -126,7 +125,7 @@
                       </div>
                   </section>
 
-                  <section id="contact" class="area" data-idx="4">
+                  <section id="contact" class="area">
                     <div class="inner">
                     
                             <h2>ddddddddddddddddddd</h2>
@@ -154,120 +153,10 @@
 
     <script>
 
-        let wh = window.innerHeight;//브라우져창 세로길이
-    
-    
-        window.addEventListener("resize",()=>{//브라우져창 크기가 조절되었을때	
-            wh=window.innerHeight;
-            window.scrollTo({top:wh*a, behavior:"smooth"});
+window.addEventListener("scroll",function(){
+    let sc = window.scrollY;
 
-        })
-    
-      
-        /// GNB //////////////////////////////////////////// 
-        const gnb = document.querySelectorAll("#gnb li a");
-    
-        gnb[0].addEventListener("click",function(e){
-            e.preventDefault();
-            window.scrollTo({top:wh*0, behavior:"smooth"});
-        });
-        gnb[1].addEventListener("click",function(e){
-            e.preventDefault();
-            window.scrollTo({top:wh*1, behavior:"smooth"});
-        });
-        gnb[2].addEventListener("click",function(e){
-            e.preventDefault();
-            window.scrollTo({top:wh*2, behavior:"smooth"});
-        });
-        gnb[3].addEventListener("click",function(e){
-            e.preventDefault();
-            window.scrollTo({top:wh*3, behavior:"smooth"});
-        });
-        
-    
-    
-    
-    
-    
-        /// 마우스휠 //////////////////////////////////////////// 
-        const areas = document.querySelectorAll(".area");
-    
-    
-        let a = 0;
-        let n = 0;
-        let t = areas.length -1;//.area의 개수 -1
-        //alert(t)
-    
-        areas.forEach((area)=>{
-        
-            area.addEventListener("wheel",(e)=>{ //각 해당영역에서 휠돌렸을때
-                n = Number( e.currentTarget.getAttribute('data-idx') ); 
-                          //e.currentTarget ---> 이벤트의 대상인 해당area를 가리킴
-                          //요소.getAttribute('data-idx') ---> 요소의 data-idx속성값
-                          //Number(값) ---> 값을 계산할 수 있는 숫자로 가져옴
-    
-                //alert(n); //휠을 돌릴 당시 해당 area요소의 data-idx값을 출력
-    
-                if(e.deltaY < 0) { //휠을 위로 돌렸을때
-                    a = n-1;
-                } 
-                else { //휠을 아래로 돌렸을때
-                    a = n+1;
-                }
-    
-                if ( a <= 0 ) { a = 0; }
-                if ( a >= t ) { a = t; }
-    
-                document.querySelector("#tt").innerText=a;//a값 출력
-                window.scrollTo({top:wh*a, behavior:"smooth"});
-
-                // if (n >= 0 ){
-                //     document.querySelector("h1").classList.toggle("on");
-                // }else {
-                //     document.querySelector("h1").classList.remove("on");
-                // }
-
-    
-            });
-    
-        });
-    
-    
-    
-    
-        /// 스크롤링 //////////////////////////////////////////// 
-    
-        window.addEventListener("scroll",function(){
-          
-            let sc = window.scrollY;//얼마만큼 스크롤했는지의 값
-
-
-    
-            if(sc>=0 && sc<wh) { //home
-                 a=0; document.querySelector("#tt").innerText=a;
-                 document.querySelector("h1").classList.remove("on");
-                 document.querySelector("header").classList.remove("on");
-            } 
-    
-            if(sc>=wh && sc<wh*2) { //about
-                 a=1; document.querySelector("#tt").innerText=a;
-                 document.querySelector("h1").classList.add("on");
-                 document.querySelector("header").classList.add("on");
-            } 
-                          
-            if(sc>=wh*2 && sc<wh*3) {	//works
-                 a=2; document.querySelector("#tt").innerText=a;
-                 document.querySelector("h1").classList.add("on");
-                 document.querySelector("header").classList.add("on");
-            } 
-            if(sc >= wh*3) { //contact
-                 a=3; document.querySelector("#tt").innerText=a;
-                 document.querySelector("h1").classList.add("on");
-                 document.querySelector("header").classList.add("on");
-            } 					  
-                              
-        });
-      
+});
     
     </script>
     

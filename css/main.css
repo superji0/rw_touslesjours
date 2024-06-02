@@ -51,7 +51,6 @@ a {
 }
 
 body {
-  overflow: hidden;
   font: 11px "Noto Sans KR", "나눔고딕";
   color: #767676;
   background-color: #f7f0da;
@@ -74,7 +73,7 @@ body a {
   background: rgba(255, 255, 255, 0.2);
 }
 #header h1 {
-  margin-left: 2rem;
+  margin-left: 3%;
   background: url(../images/logo.png) no-repeat center left;
   width: 100%;
   height: 100%;
@@ -90,7 +89,7 @@ body a {
   font-weight: 700;
 }
 #header #gnb {
-  margin-right: 2rem;
+  margin-right: 3%;
 }
 #header #gnb ul {
   display: flex;
@@ -109,7 +108,7 @@ body a {
 }
 #contents h2 {
   padding-top: 10rem;
-  font-size: 3rem;
+  font-size: 4vw;
   letter-spacing: -2px;
   text-align: center;
   color: #0B4631;
@@ -121,7 +120,7 @@ body a {
 
 #home video {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -149,4 +148,56 @@ body a {
   100% {
     transform: rotate(0deg);
   }
+}
+/* mediaquery */
+@media all and (max-width: 767px) { /* 스마트폰 */
+  body {
+    border: 10px dashed rgb(255, 119, 114);
+  }
+  #header #gnb ul {
+    gap: 1rem;
+  }
+  #header #gnb ul li {
+    display: none;
+  }
+  #header #gnb ul li:last-child {
+    display: block;
+  }
+  #home video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  #recom .recom_list {
+    flex-direction: column;
+  }
+  #recom .recom_list li {
+    width: 50%;
+  }
+}
+@media all and (min-width: 768px) and (max-width: 1023px) { /* 태블릿 */
+  body {
+    border: 10px dashed rgb(56, 255, 53);
+  }
+  #header #gnb ul {
+    gap: 1rem;
+  }
+  #header #gnb ul li:last-child {
+    display: none;
+  }
+}
+@media all and (min-width: 1024px) { /* PC */
+  #header #gnb li:last-child {
+    display: none;
+  }
+}
+#tt {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 200px;
+  background: red;
+  padding: 5px;
+  font-size: 20px;
+  color: white;
 }
