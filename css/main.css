@@ -103,19 +103,16 @@ body a {
   object-fit: cover;
 }
 
-#contents section {
-  height: 100vh;
-}
 #contents h2 {
-  padding-top: 10rem;
   font-size: 4vw;
   letter-spacing: -2px;
   text-align: center;
   color: #0B4631;
 }
 #contents .inner {
-  max-width: 1350px;
-  margin: 0 auto;
+  max-width: 1200px;
+  margin: 120px auto;
+  border: 2px solid red;
 }
 
 #home video {
@@ -136,6 +133,14 @@ body a {
 #recom .recom_list li img.re {
   animation: recomRo 3s infinite ease-out;
   width: 100%;
+}
+
+#shop_app ul {
+  display: flex;
+}
+#shop_app ul .app_wrap {
+  display: block;
+  background-color: #0B4631;
 }
 
 @keyframes recomRo {
@@ -173,6 +178,9 @@ body a {
   }
   #recom .recom_list li {
     width: 50%;
+  }
+  #shop_app ul {
+    flex-direction: column;
   }
 }
 @media all and (min-width: 768px) and (max-width: 1023px) { /* 태블릿 */
