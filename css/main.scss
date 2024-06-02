@@ -1,0 +1,115 @@
+
+    /*reset*/
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body{font-family:'Noto Sans KR';}
+    html,body { height:100%; }
+    body,div,p,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,button,input { margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    h1,h2,h3,h4 { font-size:1rem; }
+    ul,li,ol { list-style:none; }
+    img,fieldset,iframe { border:0; }
+    img { vertical-align:top;}
+    table { border-collapse:collapse; }
+    a {text-decoration: none; color:#2c2c2c; font-size: 1rem; font-weight: 400;}
+
+    $txt_default:#2c2c2c;
+    $txt_point:#0B4631;
+
+    $max_width:1350px;
+    $height_vh:100vh;
+
+    @mixin layout_flex($justify,$align) {
+        display: flex;
+        justify-content: $justify;
+        align-items: $align;
+    }
+    @mixin layout_fixed($left,$top,$width,$height,$bg){
+        position: fixed;
+        left:$left;
+        top:$top;
+        width:$width;
+        height:$height;
+        z-index: 999;
+        background:$bg;
+    }
+
+    body {
+        overflow: hidden;
+        font:11px "Noto Sans KR","나눔고딕";
+        color: #767676;
+        background-color: #f7f0da;
+        a{
+            color:$txt_default;
+            outline:none;
+        }
+    }
+
+    //header
+    #header {
+        @include layout_flex(space-between,center );
+        @include layout_fixed(0, 0, 100%, 100px, rgba(255,255,255,0.2));
+        h1 {
+            margin-left: 2rem;
+            background: url(../images/logo.png)no-repeat center left;
+            width: 100%; height:100%;
+            &.on {
+                background-image: url(../images/logo_green.png);
+            }
+        }
+        &.on {
+            background:#fff;
+            #gnb {
+                li a {
+                    color: $txt_point;
+                    font-weight: 700;
+                }
+            }
+        }
+        #gnb {
+            margin-right: 2rem;
+            ul {
+                display: flex; gap: 2rem; white-space: nowrap;
+                li a {
+                    color:white;  font-size: 1rem; letter-spacing: -1px; object-fit:cover;
+                }
+            }
+        }
+    }
+
+    // all contents layout common
+    #contents {
+        section {height: $height_vh;}
+        h2 {
+            padding-top: 10rem; font-size: 3rem; letter-spacing: -2px; text-align: center; color:$txt_point;
+        }
+        .inner { max-width:$max_width; margin: 0 auto; }
+    }
+
+    // section : contents
+    #home {
+        video {
+            width:100vw; height: 100vh; object-fit: cover;
+        }
+    }
+
+    // section : recom
+    #recom {
+        .recom_list{
+            position: relative; 
+            @include layout_flex(space-between,center);
+
+            li {
+                width: 50%;
+                img.re {animation: recomRo 3s infinite ease-out; width: 100%;}
+            }
+        }
+    }
+
+
+    @keyframes recomRo {
+        0% {transform: rotate(0deg);}
+        50% {transform: rotate(-5deg);}
+        100% {transform: rotate(0deg);}
+     } 
+
+
