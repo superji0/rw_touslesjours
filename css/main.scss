@@ -101,14 +101,29 @@
             }
         }
     }
-    //section : shop_app 쇼핑몰&케이크배달 / 매장찾기
-    #shop_app {
-        ul{
+    //section : evnet_wrap 쇼핑몰&케이크배달 / 매장찾기
+    #evnet_wrap {
+        ul.shop_app{
             display: flex;
-            .app_wrap {
+            li {
                 display: block;
                 background-color: #0B4631;
+                img {width: 100%;}
+                &.evnet_item02 {
+                    position: relative;
+                    form {position: absolute; top: 50%; left: 50%;
+                        transform: translate(-50%, -50%);
+                         border: 2px solid rgb(105, 255, 218);}
+                }
             }
+        }
+        ul.event_discount {
+            display: flex; gap: 1rem;
+            li {
+                flex: 1;
+                img {width: 100%;}
+            }
+           
         }
 
     }
@@ -168,8 +183,11 @@
 
 
         //section : shop_app 쇼핑몰&케이크배달 / 매장찾기
-        #shop_app{
-            ul {flex-direction: column;}
+        #evnet_wrap{
+            ul {
+                flex-direction: column;
+                li {flex: 1;}
+            }
         }
 
 }
