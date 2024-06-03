@@ -175,10 +175,29 @@
 
     <script>
 
-window.addEventListener("scroll",function(){
-    let sc = window.scrollY;
+    let header = document.querySelector("#header");
 
-});
+    function scrollEvent(){
+        window.addEventListener("scroll",function(){
+            let sc = window.scrollY;
+            let headerY = header.clientHeight;
+            console.log(sc);
+            if ( sc >= headerY ){
+                document.querySelector("h1").classList.add("on");
+                header.classList.add("on");
+            }else {
+                document.querySelector("h1").classList.remove("on");
+                header.classList.remove("on");
+            }
+
+        });
+    }
+
+    //header event
+    scrollEvent();
+
+
+
     
     </script>
     

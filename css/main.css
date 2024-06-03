@@ -72,6 +72,10 @@ body a {
   z-index: 999;
   background: rgba(255, 255, 255, 0.2);
 }
+#header.on {
+  background-color: #fff;
+  color: #0B4631;
+}
 #header h1 {
   margin-left: 3%;
   background: url(../images/logo.png) no-repeat center left;
@@ -158,6 +162,7 @@ body a {
 #evnet_wrap ul.event_discount {
   display: flex;
   gap: 1rem;
+  margin-top: 10px;
 }
 #evnet_wrap ul.event_discount li {
   flex: 1;
