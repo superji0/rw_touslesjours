@@ -14,6 +14,7 @@
 
     $txt_default:#2c2c2c;
     $txt_point:#0B4631;
+    $primary_color:#f7f0da;
 
     $max_width:1200px;
 
@@ -39,32 +40,37 @@
     body {
         font:11px "Noto Sans KR","나눔고딕";
         color: #767676;
-        background-color: #f7f0da;
         a{
             color:$txt_default;
             outline:none;
         }
+        h2 {
+            font-size: 4vw; letter-spacing: -2px; text-align: center; color:$txt_point;
+       }
+       .inner { max-width:$max_width; margin: 120px auto; padding: 50px 0;}
     }
 
     //header
     #header {
         @include layout_flex(space-between,center );
-        @include layout_fixed(0, 0, 100%, 100px, rgba(255,255,255,0.2));
+        @include layout_fixed(0, 0, 100%, 80px, rgba(255,255,255,0.2));
         &.on {@include header_scroll()}
         h1 {
             margin-left: 3%;
             background: url(../images/logo.png)no-repeat center left;
             width: 100%; height:100%;
+            
             &.on {
                 background-image: url(../images/logo_green.png);
+                transition: 1s ease-in-out;
             }
         }
         &.on {
             background:#fff;
+
             #gnb {
                 li a {
                     color: $txt_point;
-                    font-weight: 700;
                 }
             }
         }
@@ -72,8 +78,27 @@
             margin-right: 3%;
             ul {
                 display: flex; gap: 2rem; white-space: nowrap;
+                .main {
+                    position: relative;
+                    padding: 0 10px;
+                    .sub {
+                        display: none;
+                        position: absolute;
+                        left: 0;
+                        top: 24px;
+                        width: 100%;
+                        text-align: center;
+                        li a {
+                            display: inline-block;
+                            width: 100%;
+                            padding: 10px 0;
+                            background-color: $primary_color;
+                            color: $txt_point;
+                        }
+                    }
+                }
                 li a {
-                    color:white;  font-size: 1rem; letter-spacing: -1px; object-fit:cover;
+                    color:white;  font-size: 1rem; letter-spacing: -1px; object-fit:cover; transition: 1s;
                 }
             }
         }
@@ -81,10 +106,7 @@
 
     // all contents layout common
     #contents {
-        h2 {
-             font-size: 4vw; letter-spacing: -2px; text-align: center; color:$txt_point;
-        }
-        .inner { max-width:$max_width; margin: 120px auto; border: 2px solid red;}
+    
     }
 
     // section : contents 동영상
@@ -96,6 +118,7 @@
 
     // section : recom 추천제품
     #recom {
+        background-color: #f7f0da;
         .recom_list{
             position: relative; 
             @include layout_flex(space-between,center);
@@ -112,7 +135,7 @@
             display: flex;
             li {
                 display: block;
-                background-color: #0B4631;
+                background-color: $txt_point;
                 img {width: 100%;}
                 &.evnet_item02 {
                     position: relative;
@@ -123,7 +146,7 @@
             }
         }
         ul.event_discount {
-            display: flex; gap: 1rem; margin-top: 10px;
+            display: flex; gap: 1rem; margin-top: 1%;
             li {
                 flex: 1;
                 img {width: 100%;}
@@ -141,12 +164,71 @@
         100% {transform: rotate(0deg);}
      } 
 
+    //section : 기사채용 안내
+     #banner_wrap {
+        .item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1%;
+            width: 100%;
+           li {
+                width: 49%;
+                &:nth-child(3) {order: 4;}
+                &:nth-child(4) {order: 3;}
+            }
+           
+            img {width: 100%;
+                box-shadow: 42px 33px 0px 6px rgba(247,240,218,1);
+                -webkit-box-shadow: 42px 33px 0px 6px rgba(247,240,218,1);
+                -moz-box-shadow: 42px 33px 0px 6px rgba(247,240,218,1);}
+
+            .txt{
+                font-size: 3vw;
+                letter-spacing: -1px;
+                span {font-size: 2vw;}
+                img {width: 20%; box-shadow: none; }
+            }
+        }
+     }
 
 
 
-
-
-
+     #footer{
+        background-color: $txt_point;
+        .inner {
+            margin-bottom: 0;
+            .sitemap {
+                display: flex; flex-wrap: wrap; flex-direction: c; justify-content: flex-start; gap: 1%; margin-bottom: 5%;
+                li {margin-bottom: 5px;}
+                a { color: #fff; font-size: 1vw; letter-spacing: -1px;}
+            }
+    
+            .footer_setion {
+                display: flex; justify-content: space-between;
+                color: #fff;
+                font-size: 1.2vw;
+                .area {width: 50%;}
+            }
+            .familysite {
+                position: relative;
+                width: 120px;
+                height: 20px;
+                ul {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 20px;
+                    width: 120px;
+                    height: auto;
+                    padding:5px;
+                    background:#f6f6f6;  
+                    li {height: 20px;}
+                }
+            }
+        }
+        .copyright { background-color: $primary_color; color: #222; text-align: center; }
+     }
 
 
 
@@ -157,14 +239,20 @@
 @media all and (max-width:767px) { /* 스마트폰 */
     body {border: 10px dashed rgb(255, 119, 114);}
     #header{
+        
         #gnb{
-            ul {
-                gap: 1rem;
-                li{
-                    &{display: none;}
-                    &:last-child{display: block;}
+            transition:0.5s;
+	        height:0px;
+            overflow:hidden;
+	        position:absolute; 
+	        left:0px; top:50px; z-index:100; 
+	        width:100%; 
+	        background:rgba(0,0,0,0.8); 
+                ul {
+                    gap: 1rem;
                 }
-            }
+                .ion-navicon-round:before {scale: 2;}
+                &.on { height: 100%; }
         }
     }
 
@@ -181,7 +269,7 @@
             .recom_list{
                 flex-direction: column;
                 li {
-                    width: 50%;
+                    width: 60%;
                 }
             }
         }
@@ -194,6 +282,39 @@
                 li {flex: 1;}
             }
         }
+
+
+            //section : 기사채용 안내
+     #banner_wrap {
+        .item {
+
+            flex-direction: column;
+            li {
+                width: 100%;
+                &:nth-child(3) {order: 3;}
+                &:nth-child(4) {order: 4;}
+            }
+        }
+    }
+    #footer{
+
+        .footer_setion {
+            flex-direction: column; text-align: center; 
+            li {
+                &:nth-child(1) {order: 2;}
+                &:nth-child(2) {order: 1;}
+            }
+            .area {
+                margin: 0 auto;
+            }
+        }
+
+        .familysite {
+
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
 
 }
 

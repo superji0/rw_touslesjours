@@ -23,13 +23,24 @@
         
                 <nav id="gnb">
                     <ul>
-                      <li><a href="#home">브랜드 스토리</a></li>        
+                      <li class="main">
+                        <a href="#home">브랜드 스토리</a>
+                        <ul class="sub">
+                            <li><a href="#">브랜드 스토리</a></li>
+                            <li><a href="#">뚜레쥬르 광고</a></li>
+                            <li><a href="#">뚜레쥬르 재료 이야기</a></li>
+                        </ul>
+                    </li>        
                       <li><a href="#about">메뉴소개</a></li>
                       <li><a href="#works">이벤트&멤버십</a></li>
                       <li><a href="#contact">뚜레쥬르 App&Online</a></li>
-                      <li><a href="#contact"><i class="ion-navicon-round"></i></a></li>
+                    
                     </ul>
                 </nav>
+
+                <div class="gnb_btn">
+                   <a href="#contact"><i class="ion-navicon-round"></i></a>
+                </div>
 
         
             </header>
@@ -38,10 +49,14 @@
           
           
           
-            <div id="contents">
+            <main id="contents">
             
                   <section id="home">
                     <video src="https://www.tlj.co.kr/static/images/bread/video/video7.mp4" autoplay muted loop type="video/mp4"></video>
+                  </section>
+
+                  <section>
+                    <h2></h2>
                   </section>
                   
                   
@@ -143,11 +158,43 @@
                         </ul>
                       </div>
                   </section>
+
+                  <section id="banner_wrap">
+
+                    <ul class="item inner">
+                        <li>
+                            <a href="#">
+                                <img src="./images/banner03.jpg" alt="">
+                            
+                            </a>
+                        </li>
+                        <li class="txt">
+
+                                <img src="./images/sb.png" alt="">
+                                <p>창업안내</p>
+                                <span>뚜레쥬르 창업 이렇게 시작해 보세요</span>
+
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/banner04.jpg" alt="">
+                            
+                            </a>
+                        </li>
+                        <li class="txt">
+
+                                <img src="./images/sb.png" alt="">
+                                <p>기사 채용안내</p>
+                                <span>제과제빵의 꿈을 뚜레쥬르와 함께 하세요</span>
+
+                        </li>
+                    </ul>
+                  </section>
                   
                   
             
                   
-            </div>
+            </main>
             
             
             
@@ -169,23 +216,38 @@
                     <li><a href="#">이메일무단수집거부</a></li>
                 </ul>
 
-                <div class="area">
-                    상호명 : CJ푸드빌(주)
-                    주소:(우)04555 서울시 중구 마른내로34(초동 106-9번지)KT&G을지로타워 3, 9-11층 CJ푸드빌㈜고객센터:1577-0700통신판매업종신고증 제 2011-서울중구-0771호사업자정보확인
-                    호스팅제공자 : CJ올리브네트웍스(주)
-                    사업자등록번호:312-81-42519대표이사:김찬호개인정보보호책임자:김재완
-                    대표 이메일:help_master@cj.net
-                </div>
+                <ul class="footer_setion">
+                    <li class="area">
+                        상호명 : CJ푸드빌(주)
+                        주소:(우)04555 서울시 중구 마른내로34(초동 106-9번지)KT&G을지로타워 3, 9-11층 CJ푸드빌㈜고객센터:1577-0700통신판매업종신고증 제 2011-서울중구-0771호사업자정보확인
+                        호스팅제공자 : CJ올리브네트웍스(주)
+                        사업자등록번호:312-81-42519대표이사:김찬호개인정보보호책임자:김재완
+                        대표 이메일:help_master@cj.net
+                    </li>
+
+
+                    <li><h1><a href="#"><img src="./images/logo.png" alt=""></a></h1></li>
+
+                </ul>
+
+                
 
                 <div class="familysite">
+                    <button class="family_btn">family site</button>
+
+                    <ul>
+                        <li><a href="#">CJ푸드빌</a></li>
+                        <li><a href="#">VIPS</a></li>
+                        <li><a href="#">더플레이스</a></li>
+                        <li><a href="#">제일제면소</a></li>
+                        <li><a href="#">N서울타워</a></li>
+                    </ul>
 
                 </div>
-
-                <P>COPYRIGHT 2024©CJ Foodville ALL RIGHT RESERVED.</P>
                </div>
 
 
-                
+               <P class="copyright">COPYRIGHT 2024©CJ Foodville ALL RIGHT RESERVED.</P>
             </footer>
             
         </body>
@@ -215,8 +277,51 @@
     scrollEvent();
 
 
+    //mobile gnb 햄버거 버튼
+    let gnbBtn = document.querySelector(".gnb_btn");
+    let gnb = document.querySelector("#gnb");
+
+    gnbBtn.addEventListener("click",function(){
+        gnb.classList.toggle("on");
+        
+    });
+
+
 
     
+    </script>
+
+    <script src="http://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <script>
+        //footer 패밀리 사이트 메뉴
+        $(function(){
+            
+            $(".family_btn").click(function(){
+            
+                $(".familysite ul").slideToggle(300);
+        
+                return false;
+                
+            });
+          
+        });
+
+
+        //gnb 오버시 메뉴 펼침
+        $(function(){
+
+            $(".main").mouseenter(function(){
+                $(".sub",this).stop().slideDown(300); 
+            });
+
+            $(".main").mouseleave(function(){
+                $(".sub",this).stop().hide(); 
+            });
+
+
+        });
+
     </script>
     
 </body>
