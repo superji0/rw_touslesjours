@@ -134,11 +134,22 @@
             @include layout_flex(space-between,center);
 
             li {
+                position: relative;
                 width: 50%;
                 img.re {animation: recomRo 3s infinite ease-out; width: 100%;}
+                &.active::after{
+                    content: ''; display: inline-block; position: absolute; left: 0; top: 0; width: 500px; height: 500px; border-radius: 50%; border: 4px dashed #fff; animation: reRound 0.5s ease-in;
+                }
             }
         }
     }
+
+    @keyframes reRound {
+        0% { transform:scale(0); }
+        100% { transform:scale(1); }
+    }
+
+
     //section : evnet_wrap 쇼핑몰&케이크배달 / 매장찾기
     #evnet_wrap {
         ul.shop_app{
@@ -291,12 +302,20 @@
         #recom {
             .recom_list{
                 flex-direction: column;
+                border: 2px solid red;
                 li {
                     width: 60%;
+                    a:hover {
+                        
+                        animation: reRound 0.5s ease-in;
+                    }
                 }
             }
         }
-
+        @keyframes reRound {
+            0% { transform:scale(0); }
+	        100% { transform:scale(1); }
+        }
 
         //section : shop_app 쇼핑몰&케이크배달 / 매장찾기
         #evnet_wrap{

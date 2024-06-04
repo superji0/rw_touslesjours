@@ -160,13 +160,34 @@ body .inner {
   align-items: center;
 }
 #recom .recom_list li {
+  position: relative;
   width: 50%;
 }
 #recom .recom_list li img.re {
   animation: recomRo 3s infinite ease-out;
   width: 100%;
 }
+#recom .recom_list li.active::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 4px dashed #fff;
+  animation: reRound 0.5s ease-in;
+}
 
+@keyframes reRound {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 #evnet_wrap ul.shop_app {
   display: flex;
 }
@@ -348,9 +369,21 @@ body .inner {
   }
   #recom .recom_list {
     flex-direction: column;
+    border: 2px solid red;
   }
   #recom .recom_list li {
     width: 60%;
+  }
+  #recom .recom_list li a:hover {
+    animation: reRound 0.5s ease-in;
+  }
+  @keyframes reRound {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
   #evnet_wrap ul {
     flex-direction: column;
