@@ -18,11 +18,13 @@
 
     $max_width:1200px;
 
+
     @mixin layout_flex($justify,$align) {
         display: flex;
         justify-content: $justify;
         align-items: $align;
     }
+
     @mixin layout_fixed($left,$top,$width,$height,$bg){
         position: fixed;
         left:$left;
@@ -32,6 +34,8 @@
         z-index: 999;
         background:$bg;
     }
+
+    // 스크롤 될때 헤더 style
     @mixin header_scroll {
         background-color: #fff;
         color: $txt_point;
@@ -54,7 +58,11 @@
     #header {
         @include layout_flex(space-between,center );
         @include layout_fixed(0, 0, 100%, 80px, rgba(255,255,255,0.2));
-        &.on {@include header_scroll()}
+        // 스크롤 될때 헤더 style
+        &.on {
+            @include header_scroll();
+            .gnb_btn .ion-navicon-round:before { color:$txt_point}
+        }
         h1 {
             margin-left: 3%;
             background: url(../images/logo.png)no-repeat center left;
@@ -62,12 +70,13 @@
             
             &.on {
                 background-image: url(../images/logo_green.png);
-                transition: 1s ease-in-out;
+                transition: 0.5s ease-in-out;
             }
         }
+        .ion-navicon-round:before {color: #fff;}
         &.on {
             background:#fff;
-
+           
             #gnb {
                 li a {
                     color: $txt_point;
@@ -80,7 +89,8 @@
                 display: flex; gap: 2rem; white-space: nowrap;
                 .main {
                     position: relative;
-                    padding: 0 10px;
+                    width: 150px;
+                    text-align: center;
                     .sub {
                         display: none;
                         position: absolute;
@@ -139,9 +149,11 @@
                 img {width: 100%;}
                 &.evnet_item02 {
                     position: relative;
-                    form {position: absolute; top: 50%; left: 50%;
+                    form {
+                        position: absolute; top: 50%; left: 50%;
                         transform: translate(-50%, -50%);
-                         border: 2px solid rgb(105, 255, 218);}
+                         border: 2px solid rgb(105, 255, 218);
+                    }
                 }
             }
         }
@@ -151,9 +163,7 @@
                 flex: 1;
                 img {width: 100%;}
             }
-           
         }
-
     }
 
 
@@ -238,22 +248,35 @@
 
 @media all and (max-width:767px) { /* 스마트폰 */
     body {border: 10px dashed rgb(255, 119, 114);}
-    #header{
-        
+    #header{   
         #gnb{
             transition:0.5s;
 	        height:0px;
             overflow:hidden;
 	        position:absolute; 
-	        left:0px; top:50px; z-index:100; 
+	        left:0px; top:80px; z-index:100; 
 	        width:100%; 
-	        background:rgba(0,0,0,0.8); 
+	        background:rgba(255, 255, 255, 0.8); 
                 ul {
                     gap: 1rem;
+                    .main {
+                        width: 100%;
+                        .sub {position:static}
+                    }
                 }
                 .ion-navicon-round:before {scale: 2;}
-                &.on { height: 100%; }
+                &.on { 
+                    transition: 1s;
+                    ul {flex-direction: column;}
+                    height: fit-content; 
+                    .gnb_btn {color: #fff;}
+                }
         }
+        .gnb_btn {
+            margin-right: 3%;
+            scale: 1.5;
+        }
+
     }
 
 
@@ -322,15 +345,23 @@
 
     body {border: 10px dashed rgb(56, 255, 53);}
    #header{
-        #gnb{
+    h1 {flex: 1; background-size: contain; margin-right:20px;}
+        .gnb_btn {display: none;}
+        #gnb {
+            flex: 2;
+            font-size: 0.8vw;
             ul {
-                gap: 1rem;
-                li{
-                    &:last-child {display: none;}
+                justify-content: space-between;
+                .main {
+                    width: fit-content;
+                    text-align: center;
+                    .sub {
+                        width: fit-content;
+                    }
                 }
             }
-        }
 
+        }
    }
 }
 
@@ -338,11 +369,7 @@
 @media all and (min-width:1024px) { /* PC */
 
     #header{
-        #gnb{
-            li{
-                &:last-child {display: none;}
-            }
-        }
+        .gnb_btn {display: none;}
     }
 }
 

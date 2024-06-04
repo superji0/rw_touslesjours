@@ -86,6 +86,9 @@ body .inner {
   background-color: #fff;
   color: #0B4631;
 }
+#header.on .gnb_btn .ion-navicon-round:before {
+  color: #0B4631;
+}
 #header h1 {
   margin-left: 3%;
   background: url(../images/logo.png) no-repeat center left;
@@ -94,7 +97,10 @@ body .inner {
 }
 #header h1.on {
   background-image: url(../images/logo_green.png);
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+#header .ion-navicon-round:before {
+  color: #fff;
 }
 #header.on {
   background: #fff;
@@ -112,7 +118,8 @@ body .inner {
 }
 #header #gnb ul .main {
   position: relative;
-  padding: 0 10px;
+  width: 150px;
+  text-align: center;
 }
 #header #gnb ul .main .sub {
   display: none;
@@ -303,19 +310,36 @@ body .inner {
     overflow: hidden;
     position: absolute;
     left: 0px;
-    top: 50px;
+    top: 80px;
     z-index: 100;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.8);
   }
   #header #gnb ul {
     gap: 1rem;
+  }
+  #header #gnb ul .main {
+    width: 100%;
+  }
+  #header #gnb ul .main .sub {
+    position: static;
   }
   #header #gnb .ion-navicon-round:before {
     scale: 2;
   }
   #header #gnb.on {
-    height: 100%;
+    transition: 1s;
+    height: fit-content;
+  }
+  #header #gnb.on ul {
+    flex-direction: column;
+  }
+  #header #gnb.on .gnb_btn {
+    color: #fff;
+  }
+  #header .gnb_btn {
+    margin-right: 3%;
+    scale: 1.5;
   }
   #home video {
     width: 100vw;
@@ -368,15 +392,31 @@ body .inner {
   body {
     border: 10px dashed rgb(56, 255, 53);
   }
-  #header #gnb ul {
-    gap: 1rem;
+  #header h1 {
+    flex: 1;
+    background-size: contain;
+    margin-right: 20px;
   }
-  #header #gnb ul li:last-child {
+  #header .gnb_btn {
     display: none;
+  }
+  #header #gnb {
+    flex: 2;
+    font-size: 0.8vw;
+  }
+  #header #gnb ul {
+    justify-content: space-between;
+  }
+  #header #gnb ul .main {
+    width: fit-content;
+    text-align: center;
+  }
+  #header #gnb ul .main .sub {
+    width: fit-content;
   }
 }
 @media all and (min-width: 1024px) { /* PC */
-  #header #gnb li:last-child {
+  #header .gnb_btn {
     display: none;
   }
 }
