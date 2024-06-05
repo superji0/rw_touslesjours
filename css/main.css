@@ -322,9 +322,6 @@ body .inner {
 
 /* mediaquery */
 @media all and (max-width: 767px) { /* 스마트폰 */
-  body {
-    border: 10px dashed rgb(255, 119, 114);
-  }
   #header #gnb {
     transition: 0.5s;
     height: 0px;
@@ -369,7 +366,6 @@ body .inner {
   }
   #recom .recom_list {
     flex-direction: column;
-    border: 2px solid red;
   }
   #recom .recom_list li {
     width: 60%;
@@ -422,9 +418,6 @@ body .inner {
   }
 }
 @media all and (min-width: 768px) and (max-width: 1023px) { /* 태블릿 */
-  body {
-    border: 10px dashed rgb(56, 255, 53);
-  }
   #header h1 {
     flex: 1;
     background-size: contain;
