@@ -258,6 +258,10 @@
 /* mediaquery */
 
 @media all and (max-width:767px) { /* 스마트폰 */
+<<<<<<< HEAD
+=======
+    // body {border: 10px dashed rgb(255, 119, 114);}
+>>>>>>> 035ec40370021aca39a9ce2619c24eb687d23288
     #header{   
         #gnb{
             transition:0.5s;
@@ -300,6 +304,10 @@
         #recom {
             .recom_list{
                 flex-direction: column;
+<<<<<<< HEAD
+=======
+                // border: 2px solid red;
+>>>>>>> 035ec40370021aca39a9ce2619c24eb687d23288
                 li {
                     width: 60%;
                     a:hover {
@@ -370,7 +378,7 @@
 
 @media all and (min-width:768px) and (max-width:1023px) { /* 태블릿 */
 
-    body {border: 10px dashed rgb(56, 255, 53);}
+    // body {border: 10px dashed rgb(56, 255, 53);}
    #header{
     h1 {flex: 1; background-size: contain; margin-right:20px;}
         .gnb_btn {display: none;}

@@ -407,9 +407,6 @@ body .inner {
   }
 }
 @media all and (min-width: 768px) and (max-width: 1023px) { /* 태블릿 */
-  body {
-    border: 10px dashed rgb(56, 255, 53);
-  }
   #header h1 {
     flex: 1;
     background-size: contain;
