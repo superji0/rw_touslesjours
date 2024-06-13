@@ -134,24 +134,18 @@
                       
                         <ul class="shop_app">
                             <li class="evnet_item01">
-                                <!-- <h2>쇼핑몰 & 케이크배달</h2> -->
+                                <h2 class="blind">쇼핑몰 & 케이크배달</h2>
                                 <a href="#" class="app_wrap">
-                                    <img src="./images/event01.jpg" alt="">
-                                    <!-- <strong>
-                                        뚜레쥬르 제품을 온라인에서<br>
-                                        구매&배송신청 하세요.
-                                    </strong> -->
+                                    <img src="./images/event01.jpg" alt="쇼핑몰 & 케이크배달">
                                 </a>
                             </li>
 
                             <li class="evnet_item02">
-                                <!-- <h2>매장찾기</h2> -->
-                                <!-- <p>가까운 뚜레쥬르 매장을 찾아보세요.</p> -->
-                                <img src="./images/event02.jpg" alt="">
+                                <h2 class="blind">매장찾기</h2>
+                                <img src="./images/event02.jpg" alt="가까운 뚜레쥬르 매장을 찾아보세요">
                                 <form action="">
                                     <fieldset>
-                                        <!-- <legend>매장찾기</legend> -->
-
+                                        <legend class="blind">매장찾기</legend>
                                         <input type="text" placeholder="매장명이나 시/군/구 명 입력">
                                     </fieldset>
                                 </form>
@@ -160,17 +154,17 @@
                         <ul class="event_discount">
                             <li>
                                 <a href="#">
-                                    <img src="./images/event03.jpg" alt="">
+                                    <img src="./images/event03.jpg" alt="나라사랑카드 15% 즉시할인">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="./images/event04.jpeg" alt="">
+                                    <img src="./images/event04.jpeg" alt="뚜레쥬르 배달앱 최대 7천원 할인">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img src="./images/event05.jpg" alt="">
+                                    <img src="./images/event05.jpg" alt="제휴 할인 혜택">
                                 </a>
                             </li>
                         </ul>
@@ -221,7 +215,7 @@
             
             <footer id="footer">
                <div class="inner">
-                <!-- <h2 class="blind">사이트맵(전체메뉴)</h2> -->
+                <h2 class="blind">사이트맵(전체메뉴)</h2>
 
                 <ul class="sitemap">
                     <li><a href="#">회사소개</a></li>
@@ -307,6 +301,7 @@
 
     const recom = document.querySelectorAll(".recom_list li");
         recom.forEach((e,i)=>{
+            recom[i].classList.remove("active");
             e.addEventListener("mouseenter",function(){
                 recom[i].classList.add("active");
 

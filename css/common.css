@@ -1,0 +1,16 @@
+
+    /*reset*/
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body{font-family:'Noto Sans KR';}
+    html,body { height:100%; }
+    body,div,p,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,fieldset,button,input { margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    h1,h2,h3,h4 { font-size:1rem; }
+    ul,li,ol { list-style:none; }
+    img,fieldset,iframe { border:0; }
+    img { vertical-align:top;}
+    table { border-collapse:collapse; }
+    a {text-decoration: none; color:#2c2c2c; font-size: 1rem; font-weight: 400;}
+
+
+    .blind {position:absolute; left:0; top:-99999px;}
